@@ -48,4 +48,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function ideas() {
+        return $this->hasMany(Idea::class); // Definē attiecības ar Idea modeli, norādot, ka katram lietotājam var būt vairākas idejas
+    }
 }

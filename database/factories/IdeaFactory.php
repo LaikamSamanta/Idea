@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class IdeaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(), // Izveido jaunu lietotāju un piešķir tā ID kā user_id
+            'title' => fake()->sentence(), // Ģenerē nejaušu virsrakstu
+            'description' => fake()->paragraph(), // Ģenerē nejaušu aprakstu
+            'links' => [fake()->url()], // Ģenerē masīvu ar nejaušām saitēm
         ];
     }
 }
