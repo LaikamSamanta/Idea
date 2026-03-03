@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Database\Factories\IdeaFactory;
 use App\IdeaStatus;
+use Database\Factories\IdeaFactory;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,7 +22,7 @@ class Idea extends Model
     ];
 
     protected $attributes = [
-        'status' => IdeaStatus::PENDING, // Noklusējuma vērtība 'status' laukam ir 'pending' no IdeaStatus enum
+        'status' => IdeaStatus::PENDING->value, // Noklusējuma vērtība 'status' laukam ir 'pending' no IdeaStatus enum
     ];
 
     public function user(): BelongsTo
@@ -30,8 +30,8 @@ class Idea extends Model
         return $this->belongsTo(User::class); // Definē attiecības ar User modeli, norādot, ka katra ideja pieder vienam lietotājam
     }
 
-    public function steps() {
+    public function steps()
+    {
         return $this->hasMany(Step::class); // Definē attiecības ar Step modeli, norādot, ka katrai idejai var būt vairāki soļi
     }
-   
 }

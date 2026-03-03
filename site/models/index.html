@@ -1,0 +1,517 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for my Laravel project building Idea app">
+      
+      
+        <meta name="author" content="Samanta">
+      
+      
+      
+      
+        <link rel="next" href="../setup/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.24">
+    
+    
+      
+        <title>Models - Laravel Project Docs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/classic/main.d9d44b50.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Laravel Project Docs" class="md-header__button md-logo" aria-label="Laravel Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Laravel Project Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Laravel Project Docs" class="md-nav__button md-logo" aria-label="Laravel Project Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Laravel Project Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Idea — Laravel Aplikācija
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../styling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Styling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <h1>Models</h1>
+
+<ol>
+<li>php artisan make:model</li>
+<li>Idea -  modeļa nosaukums</li>
+<li>Izvēlies "yes" attiecībā uz factory(dummy jeb fake datu izveidei) un form request(validācijas klase), migration, policy, resource controller.</li>
+<li>Pēc modeļa izveides atver ''database/migrations'' mapi un atrodi jaunizveidoto migrācijas failu, kurā būs izveidots ''ideas'' tabulas skelets. Pievieno nepieciešamos laukus, piemēram:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">    $table-&gt;id();</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">    $table-&gt;string(&#39;title&#39;);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="x">    $table-&gt;text(&#39;description&#39;)-&gt;nullable(); // Apraksts var būt tukšs</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="x">    $table-&gt;string(&#39;status&#39;)-&gt;default(&#39;pending&#39;); // Statuss ar noklusējuma vērtību &quot;pending&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="x">    $table-&gt;string(&#39;image_path&#39;)-&gt;nullable(); // Attēla ceļš var būt tukšs</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="x">    $table-&gt;json(&#39;links&#39;)-&gt;default(&#39;[]&#39;); // Saite var būt tukša, noklusējuma vērtība ir tukšs JSON masīvs</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="x">    $table-&gt;timestamps(); // Izveido created_at un updated_at lauku</span>
+</span></code></pre></div>
+<ol>
+<li>Atver ''app/Providers/AuthServiceProvider.php'' un pievieno šo kodu, lai reģistrētu politiku:</li>
+</ol>
+<p><div class="language-php highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">    public function boot(): void</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">    {</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">        Model::unguard(); // Izslēdz masīva aizsardzību visiem modeļiem, ļaujot masīva piešķiršanu bez aizsardzības</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">        Model::shouldBeStrict(); // Ieslēdz stingro režīmu visiem modeļiem, kas nozīmē, ka tiks izmesti izņēmumi, ja tiek piešķirtas neesošas atribūtas vai ja tiek piekļūts neesošām attiecībām</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="x">        Model::automaticallyEagerLoadRelationships(); // Automātiski ielādē attiecības, kad tiek piekļūts modeļa atribūtam, kas ir attiecība</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="x">    }</span>
+</span></code></pre></div>
+6. Atver ''app/Models/Idea.php'' un pievieno šo kodu, lai definētu aizpildāmos laukus un attiecības:</p>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">    use Illuminate\Database\Eloquent\Model;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="x">     protected $casts = [</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="x">        &#39;links&#39; =&gt; AsArrayObject::class, // Pārvērš &#39;links&#39; lauku par masīvu, kad tas tiek piekļūts, un saglabā to kā JSON datubāzē</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="x">    ];</span>
+</span></code></pre></div>
+<ol>
+<li>php artisan make:enum</li>
+<li>IdeaStatus - enum nosaukums</li>
+<li>Backed enum, string vērtības</li>
+<li>Pievieno Idea modelim statusa atribūtu, kas izmanto šo enum:</li>
+</ol>
+<p><div class="language-php highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">    use App\Enums\IdeaStatus;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">    protected $casts = [</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="x">        &#39;links&#39; =&gt; AsArrayObject::class, // Pārvērš &#39;links&#39; lauku par masīvu, kad tas tiek piekļūts, un saglabā to kā JSON datubāzē</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="x">        &#39;status&#39; =&gt; IdeaStatus::class, // Pārvērš &#39;status&#39; lauku par IdeaStatus enum, kad tas tiek piekļūts, un saglabā to kā string datubāzē</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="x">    ];</span>
+</span></code></pre></div>
+11. Atver ''app/IdeaStatus.php'' un pievieno šo kodu, lai definētu enum vērtības:</p>
+<p><div class="language-php highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="x">    enum IdeaStatus: string</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="x">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="x">    case PENDING = &#39;pending&#39;;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="x">    case IN_PROGRESS = &#39;in_progress&#39;;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="x">    case COMPLETED = &#39;completed&#39;;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="x">    public function label(): string</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="x">    {</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="x">        return match ($this) {</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="x">            self::PENDING =&gt; &#39;Pending&#39;,</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="x">            self::IN_PROGRESS =&gt; &#39;In Progress&#39;,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="x">            self::COMPLETED =&gt; &#39;Completed&#39;,</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="x">        };</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="x">    }</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="x">}</span>
+</span></code></pre></div>
+12. Pārbaudīt ar php artisan tinker, vai viss strādā kā paredzēts:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>tinker
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$idea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>new<span class="w"> </span>App<span class="se">\M</span>odels<span class="se">\I</span>dea<span class="o">()</span><span class="p">;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&gt;&gt;&gt;<span class="nv">$idea</span>-&gt;status<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;in_progress&#39;</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$idea</span>-&gt;status<span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Atgriezīs<span class="w"> </span>IdeaStatus::IN_PROGRESS<span class="w"> </span>enum<span class="w"> </span>instanci
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$idea</span>-&gt;status-&gt;label<span class="o">()</span><span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Atgriezīs<span class="w"> </span><span class="s2">&quot;In Progress&quot;</span>
+</span></code></pre></div>
+<ol>
+<li>Pievieno Idea modelim attiecību ar User modeli, lai saistītu idejas ar lietotājiem:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="x">    public function user(): BelongsTo</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="x">    {</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="x">        return $this-&gt;belongsTo(User::class);</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="x">    }</span>
+</span></code></pre></div>
+<ol>
+<li>php artisan make:model</li>
+<li>Step - modeļa nosaukums</li>
+<li>Izvēlies "yes" attiecībā uz factory(dummy jeb fake datu izveidei) un migration.</li>
+<li>Atver ''database/migrations'' mapi un atrodi jaunizveidoto migrācijas failu, kurā būs izveidots ''steps'' tabulas skelets.</li>
+<li>Pievieno nepieciešamos laukus migrācijas failā, piemēram:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="x">    $table-&gt;id();</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="x">    $table-&gt;foreignIdFor(Idea::class)-&gt;constrained()-&gt;cascadeOnDelete(); // Definē ārējo atslēgu, kas saista soļus ar idejām, un nodrošina, ka soļi tiek izdzēsti, ja tiek izdzēsta saistītā ideja</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="x">    $table-&gt;string(&#39;description&#39;); // Soļa apraksts</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="x">    $table-&gt;boolean(&#39;completed&#39;)-&gt;default(false); // Norāda, vai solis ir pabeigts</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="x">    $table-&gt;timestamps();</span>
+</span></code></pre></div>
+<ol>
+<li>php artisan migrate, lai izveidotu datubāzes tabulas ar jaunajiem laukiem un attiecībām:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>migrate
+</span></code></pre></div>
+<ol>
+<li>Pievieno Idea modelim steps attiecību, lai saistītu idejas ar soļiem:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="x">    public function steps(): HasMany</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="x">    {</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="x">        return $this-&gt;hasMany(Step::class);</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="x">    }</span>
+</span></code></pre></div>
+<ol>
+<li>Ej uz Step modeli un pievieno attiecību atpakaļ uz Idea modeli:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="x">    public function idea(): BelongsTo</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="x">    {</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="x">        return $this-&gt;belongsTo(Idea::class);</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="x">    }</span>
+</span></code></pre></div>
+<ol>
+<li>User modelim pievieno attiecību ar Idea modeli, lai saistītu lietotājus ar viņu idejām:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="x">    public function ideas(): HasMany</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="x">    {</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="x">        return $this-&gt;hasMany(Idea::class);</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="x">    }</span>
+</span></code></pre></div>
+<ol>
+<li>Idea modelim pievieno atribūtus statusam un links, lai nodrošinātu noklusējuma vērtības un pareizu datu tipu:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="x">    protected $attributes = [</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="x">        &#39;status&#39; =&gt; IdeaStatus::PENDING-&gt;value, // Noklusējuma vērtība &#39;status&#39; laukam ir &#39;pending&#39; no IdeaStatus enum</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="x">    ];</span>
+</span></code></pre></div>
+<ol>
+<li>IdeaFactory klasei pievieno definīciju, lai ģenerētu dummy datus ar saistītajiem soļiem un lietotājiem:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="x">    public function definition(): array</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="x">    {</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="x">        return [</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="x">            &#39;user_id&#39; =&gt; User::factory(), // Izveido jaunu lietotāju un piešķir tā ID kā user_id</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="x">            &#39;title&#39; =&gt; fake()-&gt;sentence(), // Ģenerē nejaušu virsrakstu</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="x">            &#39;description&#39; =&gt; fake()-&gt;paragraph(), // Ģenerē nejaušu aprakstu</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="x">            &#39;links&#39; =&gt; [fake()-&gt;url()], // Ģenerē masīvu ar nejaušām saitēm</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="x">        ];</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="x">    }</span>
+</span></code></pre></div>
+<ol>
+<li>Izveido dummy datus ar factory un pārbaudi, vai viss strādā kā paredzēts:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>tinker
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>&gt;&gt;&gt;<span class="w"> </span>App<span class="se">\M</span>odels<span class="se">\I</span>dea::factory<span class="o">()</span>-&gt;make<span class="o">()</span><span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Izveidos<span class="w"> </span>jaunu<span class="w"> </span>Idea<span class="w"> </span>instanci<span class="w"> </span>ar<span class="w"> </span>saistītu<span class="w"> </span>lietotāju<span class="w"> </span>un<span class="w"> </span>soļiem,<span class="w"> </span>bet<span class="w"> </span>nesaglabās<span class="w"> </span>to<span class="w"> </span>datubāzē
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$idea</span>-&gt;status<span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Atgriezīs<span class="w"> </span>IdeaStatus::PENDING<span class="w"> </span>enum<span class="w"> </span>instanci,<span class="w"> </span>jo<span class="w"> </span>tas<span class="w"> </span>ir<span class="w"> </span>noklusējuma<span class="w"> </span>statuss
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>&gt;&gt;&gt;<span class="w"> </span>App<span class="se">\M</span>odels<span class="se">\I</span>dea::factory<span class="o">()</span>-&gt;create<span class="o">()</span><span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Izveidos<span class="w"> </span>un<span class="w"> </span>saglabās<span class="w"> </span>jaunu<span class="w"> </span>Idea<span class="w"> </span>instanci<span class="w"> </span>ar<span class="w"> </span>saistītu<span class="w"> </span>lietotāju<span class="w"> </span>un<span class="w"> </span>soļiem<span class="w"> </span>datubāzē
+</span></code></pre></div>
+<ol>
+<li>StepFactory klasei pievieno definīciju, lai ģenerētu dummy datus ar saistītajām idejām:</li>
+</ol>
+<div class="language-php highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="x">use App\Models\Idea;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="x">    public function definition(): array</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="x">    {</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="x">        return [</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="x">            &#39;idea_id&#39; =&gt; Idea::factory(), // Izveido jaunu ideju un piešķir tā ID kā idea_id</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="x">            &#39;description&#39; =&gt; fake()-&gt;sentence(), // Ģenerē nejaušu soļa aprakstu</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="x">            &#39;completed&#39; =&gt; false, // Sākotnēji norāda, ka solis nav pabeigts</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="x">        ];</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="x">    }</span>
+</span></code></pre></div>
+<ol>
+<li>Izveido dummy datus Step modelim, lai pārbaudītu attiecības:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>php<span class="w"> </span>artisan<span class="w"> </span>tinker
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$idea</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>App<span class="se">\M</span>odels<span class="se">\I</span>dea::factory<span class="o">()</span>-&gt;create<span class="o">()</span><span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Izveido<span class="w"> </span>un<span class="w"> </span>saglabā<span class="w"> </span>jaunu<span class="w"> </span>Idea<span class="w"> </span>instanci<span class="w"> </span>datubāzē
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>App<span class="se">\M</span>odels<span class="se">\S</span>tep::factory<span class="o">()</span>-&gt;create<span class="o">([</span><span class="s1">&#39;idea_id&#39;</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="nv">$idea</span>-&gt;id<span class="o">])</span><span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Izveido<span class="w"> </span>un<span class="w"> </span>saglabā<span class="w"> </span>jaunu<span class="w"> </span>Step<span class="w"> </span>instanci,<span class="w"> </span>saistot<span class="w"> </span>to<span class="w"> </span>ar<span class="w"> </span>iepriekš<span class="w"> </span>izveidoto<span class="w"> </span>Idea
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$idea</span>-&gt;steps<span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Atgriezīs<span class="w"> </span>kolekciju<span class="w"> </span>ar<span class="w"> </span>saistītajiem<span class="w"> </span>Step<span class="w"> </span>objektiem,<span class="w"> </span>tostarp<span class="w"> </span>nesen<span class="w"> </span>izveidoto<span class="w"> </span>Step
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>&gt;&gt;&gt;<span class="w"> </span><span class="nv">$step</span>-&gt;idea<span class="p">;</span><span class="w"> </span>//<span class="w"> </span>Atgriezīs<span class="w"> </span>saistīto<span class="w"> </span>Idea<span class="w"> </span>objektu,<span class="w"> </span>kas<span class="w"> </span>ir<span class="w"> </span><span class="nv">$idea</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":[],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.16f8adc2.min.js"></script>
+      
+    
+  </body>
+</html>

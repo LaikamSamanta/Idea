@@ -1,11 +1,22 @@
-@import 'tailwindcss';
+@import '_tailwindcss';
+
+@import './components/btn.css' layer(components);
+@import './components/form.css' layer(components);
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@source '../../**/*.blade.php';
+@source '../../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --color-background: okch(0.12 0 0);
+  --color-foreground: okch(0.95 0 0);
+  --color-card: okch(0.16 0.0);
+  --color-primary: okch(0.65 0.15 160);
+  --color-primary-foreground: okch(0.12 0 0);
+  --color-border: okch(0.24 0 0);
+  --color-input: okch(0.24 0 0);
+  --color-muted-foreground: okch(0.6 0 0);
 }

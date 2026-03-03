@@ -49,7 +49,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function ideas() {
+    public function ideas()
+    {
         return $this->hasMany(Idea::class); // Definē attiecības ar Idea modeli, norādot, ka katram lietotājam var būt vairākas idejas
     }
 }

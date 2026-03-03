@@ -26,5 +26,4 @@ class AppServiceProvider extends ServiceProvider
         Model::shouldBeStrict(); // Ieslēdz stingro režīmu visiem modeļiem, kas nozīmē, ka tiks izmesti izņēmumi, ja tiek piešķirtas neesošas atribūtas vai ja tiek piekļūts neesošām attiecībām
         Model::automaticallyEagerLoadRelationships(); // Automātiski ielādē attiecības, kad tiek piekļūts modeļa atribūtam, kas ir attiecība
     }
-
 }
