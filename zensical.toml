@@ -1,0 +1,12 @@
+[project]
+site_name = "Laravel Project Docs"
+site_description = "Documentation for my Laravel project building Idea app"
+site_author = "Samanta"
+language = "en"
+
+[project.theme]
+variant = "classic"
+
+[serve]
+host = "0.0.0.0"
+port = 8000
