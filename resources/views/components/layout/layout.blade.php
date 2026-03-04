@@ -9,8 +9,6 @@
 </head>
 <body class="bg-background text-foreground">
   <p>Hello World</p>
-  <div class="bg-red-500 text-white text-5xl p-10">
-    TAILWIND TEST
-</div>
+
 </body>
 </html>
