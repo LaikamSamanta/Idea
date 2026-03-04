@@ -5,14 +5,14 @@
 ```css
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-background: okch(0.12 0 0);
-    --color-foreground: okch(0.95 0 0);
-    --color-card: okch(0.16 0.0);
-    --color-primary: okch(0.65 0.15 160);
-    --color-primary-foreground: okch(0.12 0 0);
-    --color-border: okch(0.24 0 0);
-    --color-input: okch(0.24 0 0);
-    --color-muted-foreground: okch(0.6 0 0);
+    --color-background: oklch(0.12 0 0);
+  --color-foreground: oklch(0.95 0 0);
+  --color-card: oklch(0.16 0.0 0);
+  --color-primary: oklch(0.65 0.15 160);
+  --color-primary-foreground: oklch(0.12 0 0);
+  --color-border: oklch(0.24 0 0);
+  --color-input: oklch(0.24 0 0);
+  --color-muted-foreground: oklch(0.6 0 0);
 ```
 2. Izveido css mapē jaunu mapi ar nosaukumu components
 3. Izveido tur failus btn.css un form.css
@@ -182,10 +182,15 @@ input[type=file]::file-selector-button:hover {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Idea</title>
-  @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-background text-foreground">
-  <p>Hello World</p>
+    <x-layout.nav />
+
+<main class="max-w-7xl mx-auto px-6 py-10">
+  {{ $slot }}
+</main>
+
 </body>
 </html>
 ```
@@ -194,8 +199,27 @@ input[type=file]::file-selector-button:hover {
 
 ```html
 <x-layout>
-
+    <p>Homepage</p>
 </x-layout>
 ```
 
 8. npm run build
+
+9. Izveidojam failu nav.blade.php mapē views/components/layout
+
+```html
+<nav class="border-b border-border px-6">
+  <div class="max-w-7xl mx-auto h-16 flex items-center justify-between">
+    <div>
+      <a href="/">
+        <img src="/images/logo.png" alt="Idea logo" width="100" />
+      </a>
+    </div>
+
+    <div class="flex gap-x-5 items-center">
+      <a href="/login">Sign In</a>
+      <a href="/register" class="btn">Register</a>
+    </div>
+  </div>
+</nav>
+```
